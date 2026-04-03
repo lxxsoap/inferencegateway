@@ -1,0 +1,15 @@
+listen_addr: ":8080"
+
+backends:
+  - id: "backend-1"
+    address: "http://localhost:8081"
+    max_concurrency: 10
+  - id: "backend-2"
+    address: "http://localhost:8082"
+    max_concurrency: 10
+
+router:
+  strategy: "hybrid"
+  prefix_min_length: 4
+  load_threshold_percent: 0.8
+  prefix_cache_max_size: 10000
